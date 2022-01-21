@@ -20,12 +20,12 @@ class MyApp extends StatelessWidget {
           //backgroundColor: Colors.yellow,
           title: const Text("Title")
         ),
-        body: Container( alignment: Alignment.center,child: const Text("Hello",),),
+        body: Container( alignment: Alignment.center,child: const Text("Hello",),color: Colors.amber,),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             debugPrint("Clicked");
           },
-          child: const Text("Button")
+          child: const Icon(Icons.home_filled)
         ),
       ),
     );
