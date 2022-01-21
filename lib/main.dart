@@ -11,20 +11,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          appBarTheme: AppBarTheme(color: Colors.green),
+          appBarTheme: const AppBarTheme(color: Colors.purple),
           floatingActionButtonTheme:
-              FloatingActionButtonThemeData(backgroundColor: Colors.red)),
+              const FloatingActionButtonThemeData(backgroundColor: Colors.red)),
       home: Scaffold(
+        backgroundColor: Colors.green,
         appBar: AppBar(
           //backgroundColor: Colors.yellow,
-          title: Text("Title"),
+          title: const Text("Title")
         ),
-        body: Text("Hello"),
+        body: Container( alignment: Alignment.center,child: const Text("Hello",),),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             debugPrint("Clicked");
           },
-          child: Text("Button"),
+          child: const Text("Button")
         ),
       ),
     );
