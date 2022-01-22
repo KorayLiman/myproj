@@ -6,8 +6,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
-  String _img =
-      "https://www.sivasizpsikoloji.com/gorseller/komponent/header--ortali-logo/komponent4412.png";
+  String _img = "assets\AREmoji_20220114_174931_50[6].gif";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +19,56 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
             //backgroundColor: Colors.yellow,
             title: const Text("Title")),
-        body: Container(
+        body: TestContainer(),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              debugPrint("Clicked");
+            },
+            child: const Icon(Icons.home_filled)),
+      ),
+    );
+  }
+
+  Widget TestContainer() {
+    return Container(
+        width: 50,
+        height: 50,
+        margin: EdgeInsets.fromLTRB(10, 300, 0, 10),
+        decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            color: Colors.blue,
+            borderRadius: BorderRadius.circular(20),
+            image: DecorationImage(
+                image: NetworkImage(
+                    "https://static.wixstatic.com/media/26e925_c36af2b866b34224b2eb366c201d8213~mv2.gif"))));
+  }
+
+  Widget ContainerLessons() {
+    return Center(
+      child: Container(
+        width: 100,
+        height: 100,
+        // margin: EdgeInsets.only(left: 40, top: 0, right: 0, bottom: 40),
+        decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            color: Colors.red,
+            border: Border.all(width: 8, color: Colors.purple),
+            borderRadius: BorderRadius.circular(40),
+            image: DecorationImage(
+                image: NetworkImage(
+                    "https://static.wixstatic.com/media/26e925_c36af2b866b34224b2eb366c201d8213~mv2.gif"),
+                fit: BoxFit.fill),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.purple, offset: Offset(20, 20), blurRadius: 15)
+            ]),
+      ),
+    );
+  }
+}
+
+
+/*Container(
           color: Colors.blue.shade400,
           child: Column(
             // mainAxisSize: MainAxisSize.max,
@@ -49,32 +97,4 @@ class MyApp extends StatelessWidget {
               )
             ],
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              debugPrint("Clicked");
-            },
-            child: const Icon(Icons.home_filled)),
-      ),
-    );
-  }
-
-  Widget ContainerLessons() {
-    return Center(
-      child: Container(
-        margin: EdgeInsets.only(left: 40, top: 100, right: 40, bottom: 100),
-        decoration: BoxDecoration(
-            shape: BoxShape.rectangle,
-            color: Colors.red,
-            border: Border.all(width: 8, color: Colors.purple),
-            borderRadius: BorderRadius.circular(40),
-            image:
-                DecorationImage(image: NetworkImage(_img), fit: BoxFit.contain),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.purple, offset: Offset(20, 20), blurRadius: 15)
-            ]),
-      ),
-    );
-  }
-}
+        )*/
