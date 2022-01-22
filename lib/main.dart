@@ -6,6 +6,21 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
+
+  Container CreateContainer(String Letter, Color Col, [double margin = 0]) {
+    return Container(
+      width: 60,
+      height: 60,
+      alignment: Alignment.center,
+      color: Col,
+      margin: EdgeInsets.only(top: margin),
+      child: Text(
+        Letter,
+        style: TextStyle(fontSize: 32),
+      ),
+    );
+  }
+
   String _img = "assets\AREmoji_20220114_174931_50[6].gif";
   @override
   Widget build(BuildContext context) {
@@ -19,13 +34,60 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
             //backgroundColor: Colors.yellow,
             title: const Text("Title")),
-        body: TestContainer(),
+        body: Container(
+          color: Colors.blue,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [BringRow(), Expanded(child: BringColumn())],
+          ),
+        ),
         floatingActionButton: FloatingActionButton(
             onPressed: () {
               debugPrint("Clicked");
             },
             child: const Icon(Icons.home_filled)),
       ),
+    );
+  }
+
+  Column BringColumn() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Expanded(
+          child: CreateContainer('E', Colors.orange, 15),
+        ),
+        Expanded(
+          child: CreateContainer('R', Colors.orange, 15),
+        ),
+        Expanded(
+          child: CreateContainer('S', Colors.orange, 15),
+        ),
+        Expanded(
+          child: CreateContainer('L', Colors.orange, 15),
+        ),
+        Expanded(
+          child: CreateContainer('E', Colors.orange, 15),
+        ),
+        Expanded(
+          child: CreateContainer('R', Colors.orange, 15),
+        ),
+        Expanded(
+          child: CreateContainer('I', Colors.orange, 15),
+        ),
+      ],
+    );
+  }
+
+  Row BringRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        CreateContainer('D', Colors.orange),
+        CreateContainer('A', Colors.orange),
+        CreateContainer('R', Colors.orange),
+        CreateContainer('T', Colors.orange),
+      ],
     );
   }
 
